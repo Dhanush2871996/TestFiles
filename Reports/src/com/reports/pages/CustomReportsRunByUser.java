@@ -1,13 +1,17 @@
 package com.reports.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CustomReportsRunByUser 
+import com.reports.generics.BaseTest;
+
+public class CustomReportsRunByUser extends BaseTest
 {
 	//First log as particular user and then test the custom reports.
+
 	
 	//************* All Custom Reports Links for DashBoard starts **********//
 		@FindBy(xpath = "//tr[@id='toolbarRow0']/td[4]/a")
@@ -149,13 +153,11 @@ public class CustomReportsRunByUser
 		WebElement radiologyAlertCategoryReport;
 		
 		@FindBy(xpath = "//tr[@id='toolbarRow46']/td[4]/a")
-		WebElement labTatReport_fields;
+		WebElement collectionLogReport;
 		
 		@FindBy(xpath = "//tr[@id='toolbarRow47']/td[4]/a")
-		WebElement modifiedRevenueProgressReport;
+		WebElement newAppointmentTATreport;
 		
-		@FindBy(xpath = "//tr[@id='toolbarRow48']/td[4]/a")
-		WebElement collectionLogReportFinal;
 		//************* All Custom Reports Links for DashBoard ends **********//
 		
 		public CustomReportsRunByUser(WebDriver driver) 
@@ -271,6 +273,7 @@ public class CustomReportsRunByUser
 		
 		public void clickOnBillStatusReport()
 		{
+			//((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 			billStatusReport.click();
 		}
 		
@@ -279,7 +282,7 @@ public class CustomReportsRunByUser
 			laboratoryTATReport.click();
 		}
 		
-		public void clickOnlaboratoryTATReport()
+		public void clickOnInsuranceCompanywiseSalesReport()
 		{
 			insuranceCompanywiseSalesReport.click();
 		}
@@ -309,12 +312,12 @@ public class CustomReportsRunByUser
 			bedOccupancyReport.click();
 		}
 		
-		public void clickOnDRGVarianceReport(WebDriver driver30)
+		public void clickOnDRGVarianceReport()
 		{
 			DRGVarianceReport.click();
 		}
 		
-		public void clickOnDoctorPerformanceReport(WebDriver driver31)
+		public void clickOnDoctorPerformanceReport()
 		{
 			doctorPerformanceReport.click();
 		}
@@ -346,6 +349,7 @@ public class CustomReportsRunByUser
 		
 		public void clickOnTotalSalesReport()
 		{
+			//((JavascriptExecutor)driver).executeScript("scroll(400,1000)");
 			totalSalesReport.click();
 		}
 		
@@ -393,20 +397,15 @@ public class CustomReportsRunByUser
 		{
 			radiologyAlertCategoryReport.click();
 		}
-		
-		public void clickonLabTatReport_fields()
+
+		public void clickonCollectionLogReport()
 		{
-			labTatReport_fields.click();
+			collectionLogReport.click();
 		}
 		
-		public void clickonModifiedRevenueProgressReport()
+		public void clickonNewAppointmentTATReport()
 		{
-			modifiedRevenueProgressReport.click();
-		}
-		
-		public void clickonCollectionLogReportFinal()
-		{
-			collectionLogReportFinal.click();
+			newAppointmentTATreport.click();
 		}
 		//************* All Custom Reports Links for DashBoard ends **********//
 

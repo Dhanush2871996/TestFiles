@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,6 +65,14 @@ public class BuiderElements extends BaseTest
 	@FindBy(xpath="//select[@name = 'modifiedCenterId']")
 	public
 	WebElement centerDropDown;
+	
+	@FindBy(xpath="//select[@id = 'listFields']")
+	public
+	WebElement fieldsListBox;
+	
+	@FindBy(xpath="//*[@id=\"listFieldsDiv\"]/fieldset/table/tbody/tr/td[4]/div/button[3]/img")
+	public
+	WebElement deselecButton;
 	
 	public BuiderElements(WebDriver driver) 
 	{
@@ -138,7 +147,6 @@ public class BuiderElements extends BaseTest
 		
 		if(alertMsg.equalsIgnoreCase(expectedMsg))
 		{
-			
 			alert.accept();
 			return true;
 		}
@@ -287,6 +295,20 @@ public class BuiderElements extends BaseTest
 	{
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
+	}
+	
+	public void numOfFieldsSelected()
+	{
+		Select select = new Select(fieldsListBox);
+		List<WebElement> listBox =select.getOptions();
+		int size = listBox.size();
+		if(size>4) {
+			for(int i=size;i>2;i--)
+			{
+				driver.findElement(By.xpath(" //*[@id=\"listFields\"]/option["+i+"]")).click();
+				deselecButton.click();
+			}
+		}
 	}
 	
 }

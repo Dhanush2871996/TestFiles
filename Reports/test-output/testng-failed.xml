@@ -3,12 +3,28 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.reports.testcases.TestCustomReportBuilders">
+      <class name="com.reports.testcases.TestFinancialRevenueReportBuilder">
         <methods>
-          <include name="testingAllTheNagativeCases"/>
+          <include name="test3MonthCsv"/>
+          <include name="test3MonthText"/>
+          <include name="chekForCorporateOffice" invocation-numbers="0 1 2 3 4 5 6 7"/>
           <include name="setUp"/>
+          <include name="check3MonthFavPDFReport"/>
+          <include name="check1MonthFavPDFReport"/>
+          <include name="test3MonthPdf"/>
+          <include name="checkFavouriteReportsForDefaultDate_option2"/>
+          <include name="checkFavouriteReportsForDefaultDate_option3"/>
+          <include name="createFavouritesForAllowedReportDurationoption" invocation-numbers="0 1 2 3"/>
+          <include name="checkFavouriteReportsForDefaultDate_option1"/>
+          <include name="pdfTest" invocation-numbers="0 1 2 3 4 5 6 7"/>
+          <include name="check2MonthFavPDFReport"/>
+          <include name="chekForCorporateOffice_fav2"/>
+          <include name="checkFavouriteReportsForDefaultDate_optionSelect"/>
+          <include name="chekForCorporateOffice_fav1"/>
+          <include name="verifyDateFieldsForPreviousMonthOptions"/>
+          <include name="chekForCorporateOffice_fav3"/>
         </methods>
-      </class> <!-- com.reports.testcases.TestCustomReportBuilders -->
+      </class> <!-- com.reports.testcases.TestFinancialRevenueReportBuilder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

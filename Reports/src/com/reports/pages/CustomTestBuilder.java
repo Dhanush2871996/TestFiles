@@ -21,9 +21,12 @@ public class CustomTestBuilder extends CustomReports
 	EditCustomReportRights editCustReportRights;
 	
 	CustomReports customReports;
-	BuiderElements builderElements;
+	static BuiderElements builderElements;
 	CustomReportsRunByUser customReportsRunByUser;
 	TestBuilders testBuilders;
+	
+	static String mainAddres;
+	
 	
 	public CustomTestBuilder(WebDriver driver)
 	{
@@ -65,151 +68,142 @@ public class CustomTestBuilder extends CustomReports
 	
 		clickOnBillAdjustmentEntriesList(driver);
 		rightsConfig("3");
-		/*
-		clickOnDoctorRevenueDetailedReport(driver);
-		rightsConfig("4");
-	
-		clickOnBillAdjustmentEntriesList(driver);
-		rightsConfig("5");
 		
 		clickOnDoctorRevenueDetailedReport(driver);
-		rightsConfig("6");
+		rightsConfig("4");
 		
 		clickOnRadiologyTATReport(driver);
-		rightsConfig("7");
+		rightsConfig("5");
 		
 		clickOnDepartmentwisePatientCount(driver);
-		rightsConfig("8");
+		rightsConfig("6");
 		
-		clickOnConsumableItemsPriceReport(driver);
-		rightsConfig("9");
+//		clickOnConsumableItemsPriceReport(driver); //not used since there is no "date field" only
+//		rightsConfig("7");
 		
 		clickOnVisitStatusReportforHealthAuthority(driver);
-		rightsConfig("10");
+		rightsConfig("7");
 		
-		clickOnSubmissionRejectionRateReporty(driver);
-		rightsConfig("11");
+		clickOnSubmissionRejectionRateReport(driver);
+		rightsConfig("8");
 		
 		clickOnSponsorWiseClaimSubmissionList(driver);
-		rightsConfig("12");
+		rightsConfig("9");
 		
 		clickOnMedicalCheckupReport(driver);
-		rightsConfig("1");
+		rightsConfig("10");
 		
 		clickOnRepeatingDiagnosisReport(driver);
-		rightsConfig("2");
+		rightsConfig("11");
 		
 		clickOnAirmileReport(driver);
-		rightsConfig("3");
+		rightsConfig("12");
 		
 		clickOnRevenueProgressReport(driver);
-		rightsConfig("4");
+		rightsConfig("1");
 		
-		clickOnDetailedStockReport(driver);
-		rightsConfig("5");
+//		clickOnDetailedStockReport(driver);//not part of automation since it does not have from and to date fields
+//		rightsConfig("5");
 		
 		clickOnPatientReferralReport(driver);
-		rightsConfig("6");
+		rightsConfig("2");
 		
 		clickOnCashCreditSplitReport(driver);
-		rightsConfig("7");
+		rightsConfig("3");
 		
 		clickOnInsuranceClaimBatchReport(driver);
-		rightsConfig("8");
+		rightsConfig("4");
 		
 		clickOnStockRejectionReport(driver);
-		rightsConfig("9");
+		rightsConfig("5");
 		
-		clickOnBifurcationReport(driver);
-		rightsConfig("10");
-		
-		clickOnReconciliationReport(driver);
-		rightsConfig("11");
+//		clickOnBifurcationReport(driver);// not part of script since it of type pdf format
+//		rightsConfig("7");
+//		
+//		clickOnReconciliationReport(driver);// not part of script since it of type pdf format
+//		rightsConfig("8");
 	
-		clickOnBillStatusReport(driver);
-		rightsConfig("12");
+		clickOnBillStatusReport(driver); //Run this report every time so that page will get scroll upward. 
+		rightsConfig("6");
 	
 		clickOnLaboratoryTATReport(driver);
-		rightsConfig("1");
+		rightsConfig("7");
 		
-		clickOnlaboratoryTATReport(driver);
-		rightsConfig("2");
+		clickOnInsuranceCompanywiseSalesReport(driver);
+		rightsConfig("8");
 		
 		clickOnListofPlansReport(driver);
-		rightsConfig("3");
+		rightsConfig("9");
 		
 		clickOnDenialAcceptanceReport( driver);
-		rightsConfig("4");
+		rightsConfig("10");
 		
 		clickOnNationWiseRevenueReport(driver);
-		rightsConfig("5");
-		
-		clickOnNationWiseRevenueReportDepartmentWise(driver);
-		rightsConfig("6");
-		
-		clickOnBedOccupancyReport(driver);
-		rightsConfig("7");
-		
-		clickOnDRGVarianceReport(driver);
-		rightsConfig("8");
-		
-		clickOnDoctorPerformanceReport(driver);
-		rightsConfig("9");
-		
-		clickOnTherapistReport(driver);
-		rightsConfig("10");
-		
-		clickOnCustomerDueReport(driver);
-		rightsConfig("12");
-		
-		clickOnRemittanceAdviceReport(driver);
-		rightsConfig("1");
-		
-		clickOnPACSOrderStatisticsReport(driver);
-		rightsConfig("2");
-		
-		clickOnResubmissionReport(driver);
-		rightsConfig("3");
-	
-		clickOnTotalSalesReport(driver);
-		rightsConfig("4");
-		
-		clickOnDischargeStatusReport(driver);
-		rightsConfig("5");
-		
-		clickOnStockStatusReport(driver);
-		rightsConfig("6");
-		
-		clickonPowerscribeReport(driver);
-		rightsConfig("7");
-		
-		clickonAdvanceAndRefundReceipts(driver);
-		rightsConfig("8");
-		
-		clickonDepositAndRefundReceipt(driver);
-		rightsConfig("9");
-		
-		clickonPatientDueReport(driver);
-		rightsConfig("10");
-		
-		clickonAppointmentTATReport(driver);
 		rightsConfig("11");
 		
-		clickonPriorAuthReport(driver);
+		clickOnNationWiseRevenueReportDepartmentWise(driver);
 		rightsConfig("12");
 		
-		clickonRadiologyAlertCategoryReport(driver);
+		clickOnBedOccupancyReport(driver);
 		rightsConfig("1");
 		
-		clickonLabTatReport_fields(driver);
+		clickOnDRGVarianceReport(driver);
+		rightsConfig("2");
+		/*
+		clickOnDoctorPerformanceReport(driver);
+		rightsConfig("3");
+		
+		clickOnTherapistReport(driver);
+		rightsConfig("4");
+		
+		clickOnCustomerDueReport(driver);
+		rightsConfig("5");
+		
+		clickOnRemittanceAdviceReport(driver);
+		rightsConfig("6");
+		
+//		clickOnPACSOrderStatisticsReport(driver);//not part of the automation since it is pdf
+//		rightsConfig("2");
+		
+		clickOnResubmissionReport(driver);
+		rightsConfig("7");
+	
+		clickOnTotalSalesReport(driver);  //always run this reports because it will scroll the page upward.
+		rightsConfig("8");
+		
+		clickOnDischargeStatusReport(driver);
+		rightsConfig("9");
+		
+//		clickOnStockStatusReport(driver);//not part of the automation since it does not have from and to date field
+//		rightsConfig("6");
+		
+//		clickonPowerscribeReport(driver);//not part of the automation since it is pdf
+//		rightsConfig("7");
+		
+		clickonAdvanceAndRefundReceipts(driver);
+		rightsConfig("10");
+		
+		clickonDepositAndRefundReceipt(driver);
+		rightsConfig("11");
+		
+		clickonPatientDueReport(driver);
+		rightsConfig("12");
+		
+		clickonAppointmentTATReport(driver);
+		rightsConfig("1");
+		
+		clickonPriorAuthReport(driver);
 		rightsConfig("2");
 		
-		clickonModifiedRevenueProgressReport(driver);
+		clickonRadiologyAlertCategoryReport(driver);
 		rightsConfig("3");
-	
-		clickonCollectionLogReportFinal(driver);
+		
+		clickonCollectionLogReport(driver);
+		rightsConfig("4");
+		
+		clickonNewAppointmentTATReport(driver);
 		rightsConfig("5");
-		*/
+*/
 	}
 	
 	//test1
@@ -225,142 +219,333 @@ public class CustomTestBuilder extends CustomReports
 		builderElements = new BuiderElements(driver);
 		
 	}
-	//test1
-	public void runCustomReportFor1Month() throws InterruptedException
+
+	public String initializeElement() throws InterruptedException
 	{
-		customReportsRunByUser.clickOnDepartmentWiseAllocationReport();
+		customReportsRunByUser = new CustomReportsRunByUser(driver);//Initializing the element of the dashboard.
 		
-		String parent2 =driver.getWindowHandle();//address of cutomDasboard page tab
-		builderElements.switchTabs(parent2);
-		System.out.println("stage 2");
+		mainAddres = driver.getWindowHandle();
 		
-		builderElements.selectDateRangeOPtion("Today");
-		System.out.println("stage 1");
-		builderElements.clickOnPdfButton();
+		builderElements.switchTabs(mainAddres);
 		
-		String parent3 =driver.getWindowHandle();//address of CustomBuilder page tab
- 		builderElements.switchTabs(parent3);
- 		
- 		//Note before closing the window extract the date range from pdf and the close
-		driver.close();//closing the pdf page tab
-		driver.switchTo().window(parent3);
-		
+		return mainAddres;
 	}
 	
-	//test3
-	public boolean runCustomReportFor2Month(String fromDateEnter, String toDateEnter)
+	
+	/////////////////////All the Positive cases for custom reports starts/////////////////
+	
+	public static void getWindowHandle_SwitchTab() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
+		mainAddres = driver.getWindowHandle();
+		builderElements.switchTabs(mainAddres);	
+	}
+	//test1
+	public String runCustomReportfor1Month_1st() throws InterruptedException
+	{
+		customReportsRunByUser = new CustomReportsRunByUser(driver);//initializing the webelement for buiderelements
+		customReportsRunByUser.clickOnDepartmentWiseAllocationReport();
+
+		CustomTestBuilder.getWindowHandle_SwitchTab();
 		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 2 Months Duration and generate the Report."); 		
+		return mainAddres;
 		
 	}
+	//test2
+	public String runCustomReportfor2Month_2nd() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnDoctorWisePatientCountReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test3
+	public String runCustomReportfor3Month_3th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnBillAdjustmentEntriesList();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	/////////////////////All the Positive cases for custom reports starts/////////////////
 	
 	//test4
-	public boolean runCustomReportsFor4Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor4Month_4th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 4 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnDoctorRevenueDetailedReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	
 	//test5
-	public boolean runCustomReportsFo5Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor5Month_5th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 5 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnRadiologyTATReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	
 	//test6
-	public boolean runCustomReportsFor6Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor6Month_6th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 6 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnDepartmentwisePatientCount();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	
 	//test7
-	public boolean runCustomReportsFor7Month(String fromDateEnter, String toDateEnter)
-	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 7 Months Duration and generate the Report."); 		
-		
-	}
+//	public String runCustomReportsFor7Month_7th() throws InterruptedException
+//	{
+//		customReportsRunByUser.clickOnConsumableItemsPriceReport();
+//		CustomTestBuilder.getWindowHandle_SwitchTab();
+//		return mainAddres;
+//	}
 	
 	//test8
-	public boolean runCustomReportsFor8Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor7Month_7th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 8 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnVisitStatusReportforHealthAuthority();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	//test9
-	public boolean runCustomReportsFor9Month(String fromDateEnter, String toDateEnter)
-	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 9 Months Duration and generate the Report."); 		
-		
+	public String runCustomReportsFor8Month_8th() throws InterruptedException
+	{	customReportsRunByUser.clickOnSubmissionRejectionRateReporty();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	//test10
-	public boolean runCustomReportsFor10Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor9Month_9th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 10 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnSponsorWiseClaimSubmissionList();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	
 	//test11
-	public boolean runCustomReportsFor11Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor10Month_10th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 11 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnMedicalCheckupReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	
 	//test12
-	public boolean runCustomReportsFor12Month(String fromDateEnter, String toDateEnter)
+	public String runCustomReportsFor11Month_11th() throws InterruptedException
 	{
-		builderElements.enterFromAndToDate(fromDateEnter, toDateEnter);
-		builderElements.clickOnPdfButton();
-		
-		return builderElements.verifyDateRangeAlertMsg("Please Select 12 Months Duration and generate the Report."); 		
-		
+		customReportsRunByUser.clickOnRepeatingDiagnosisReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+
+	//test13
+	public String runCustomReportsFor12Month_12th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnAirmileReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test14
+	public String runCustomReportsFor1Month_13th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnRevenueProgressReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test15
+	public String runCustomReportsFor2Month_14th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnPatientReferralReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test16
+	public String runCustomReportsFor3Month_15th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnCashCreditSplitReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
 	}
 	
-	//test13
-	
-	//test14
-	
-	//test15
-	
-	//test16
-	
-	
 	//test17
-	
+	public String runCustomReportsFor4Month_16th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnInsuranceClaimBatchReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
 	//test18
-	
+	public String runCustomReportsFor5Month_17th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnStockRejectionReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
 	//test19
 	
-	
+	public String runCustomReportsFor6Month_18th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnBillStatusReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
 	//test20
+	public String runCustomReportsFor7Month_19th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnLaboratoryTATReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test21
+	public String runCustomReportsFor8Month_20th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnInsuranceCompanywiseSalesReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test22
+	public String runCustomReportsFor9Month_21th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnListofPlansReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test23
+	public String runCustomReportsFor10Month_22th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnDenialAcceptanceReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test24
+	public String runCustomReportsFor11Month_23th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnNationWiseRevenueReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test25
+	public String runCustomReportsFor12Month_24th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnNationWiseRevenueReportDepartmentWise();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test26
+	public String runCustomReportsFor1Month_25th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnBedOccupancyReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test27
+	public String runCustomReportsFor2Month_26th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnDRGVarianceReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test28
+	public String runCustomReportsFor3Month_27th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnDoctorPerformanceReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
 	
+	//test29
+	public String runCustomReportsFor4Month_28th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnTherapistReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test30
+	public String runCustomReportsFor5Month_29th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnCustomerDueReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test31
+	public String runCustomReportsFor6Month_30th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnRemittanceAdviceReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test32
+	public String runCustomReportsFor7Month_31th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnResubmissionReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test33
+	public String runCustomReportsFor8Month_32th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnTotalSalesReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test34
+	public String runCustomReportsFor9Month_33th() throws InterruptedException
+	{
+		customReportsRunByUser.clickOnDischargeStatusReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test35
+	public String runCustomReportsFor10Month_34th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonAdvanceAndRefundReceipts();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test36
+	public String runCustomReportsFor11Month_35th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonDepositAndRefundReceipt();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test37
+	public String runCustomReportsFor12Month_36th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonPatientDueReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test38
+	public String runCustomReportsFor1Month_37th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonAppointmentTATReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test39
+	public String runCustomReportsFor2Month_38th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonPriorAuthReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test40
+	public String runCustomReportsFor3Month_39th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonRadiologyAlertCategoryReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test41
+	public String runCustomReportsFor4Month_40th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonCollectionLogReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
+	//test42
+	public String runCustomReportsFor5Month_41th() throws InterruptedException
+	{
+		customReportsRunByUser.clickonNewAppointmentTATReport();
+		CustomTestBuilder.getWindowHandle_SwitchTab();
+		return mainAddres;
+	}
 }

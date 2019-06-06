@@ -67,7 +67,7 @@ public class CustomReports extends BaseTest
 	WebElement visitStatusReportforHealthAuthority;
 	
 	@FindBy(xpath = "//tr[@id='toolbarRow8']")
-	WebElement submissionRejectionRateReporty;
+	WebElement submissionRejectionRateReport;
 	
 	@FindBy(xpath = "//tr[@id='toolbarRow9']")
 	WebElement sponsorWiseClaimSubmissionList;
@@ -181,13 +181,11 @@ public class CustomReports extends BaseTest
 	WebElement radiologyAlertCategoryReport;
 	
 	@FindBy(xpath = "//tr[@id='toolbarRow46']")
-	WebElement labTatReport_fields;
+	WebElement collectionLogReport;
 	
 	@FindBy(xpath = "//tr[@id='toolbarRow47']")
-	WebElement modifiedRevenueProgressReport;
-	
-	@FindBy(xpath = "//tr[@id='toolbarRow48']")
-	WebElement collectionLogReportFinal;
+	WebElement newAppointmentTATReport;
+
 	//************* All Custom Reports Links for DashBoard ends **********//
 
 	public CustomReports(WebDriver driver) 
@@ -263,9 +261,9 @@ public class CustomReports extends BaseTest
 		performAction(driver8, visitStatusReportforHealthAuthority);
 	}
 	
-	public void clickOnSubmissionRejectionRateReporty(WebDriver driver9)
+	public void clickOnSubmissionRejectionRateReport(WebDriver driver9)
 	{
-		performAction(driver9, submissionRejectionRateReporty);
+		performAction(driver9, submissionRejectionRateReport);
 	}
 	
 	public void clickOnSponsorWiseClaimSubmissionList(WebDriver driver10)
@@ -330,7 +328,6 @@ public class CustomReports extends BaseTest
 	
 	public void clickOnBillStatusReport(WebDriver driver22)
 	{
-//		scroll(billStatusReport);
 		((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 		performAction(driver22, billStatusReport);
 	}
@@ -340,7 +337,7 @@ public class CustomReports extends BaseTest
 		performAction(driver23, laboratoryTATReport);
 	}
 	
-	public void clickOnlaboratoryTATReport(WebDriver driver24)
+	public void clickOnInsuranceCompanywiseSalesReport(WebDriver driver24)
 	{
 		performAction(driver24, insuranceCompanywiseSalesReport);
 	}
@@ -456,19 +453,14 @@ public class CustomReports extends BaseTest
 		performAction(driver46,radiologyAlertCategoryReport);
 	}
 	
-	public void clickonLabTatReport_fields(WebDriver driver47)
+	public void clickonCollectionLogReport(WebDriver driver47)
 	{
-		performAction(driver47, labTatReport_fields);
+		performAction(driver47, collectionLogReport);
 	}
 	
-	public void clickonModifiedRevenueProgressReport(WebDriver driver48)
+	public void clickonNewAppointmentTATReport(WebDriver driver48)
 	{
-		performAction(driver48, modifiedRevenueProgressReport);
-	}
-	
-	public void clickonCollectionLogReportFinal(WebDriver driver49)
-	{
-		performAction(driver49, collectionLogReportFinal);
+		performAction(driver48, newAppointmentTATReport);
 	}
 	//************* All Custom Reports Links for DashBoard ends **********//
 	

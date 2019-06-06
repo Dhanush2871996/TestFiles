@@ -37,6 +37,7 @@ public class TestBuilders extends BaseTest{
 	TestLoginPage testLoginPage;
 	FinancialReports financialReport;
 	BuiderElements builderElements;
+	BuiderElements builderElements1;
 	DateProvider getDate;
 	NameProvider Name;
 	FavouriteReports favouriteReports;
@@ -46,7 +47,7 @@ public class TestBuilders extends BaseTest{
 
 	public TestBuilders()
 	{
-		
+		builderElements = new BuiderElements(driver);
 	}
 
 	public TestBuilders(String userName,String passWord,String shouldInitlization)
@@ -408,74 +409,92 @@ public class TestBuilders extends BaseTest{
 		return builderElements.verifyDateRangeAlertMsg(validationMessage);
 	}
 	
-	public boolean verifyPdfDateRange(String option)
+	public boolean verifyPdfDateRange(String option) throws InterruptedException
 	{
+		//declaire a int and incerment to close the driverclose
+		
 		String addrMain = driver.getWindowHandle();//Stores Main Window Address
 
-		if(option!=null)builderElements.selectDateRangeOPtion(option);// Dependent code we have to test onces
+		if(option!=null)
+			{
+			builderElements.selectDateRangeOPtion(option);// Dependent code we have to test once
+			builderElements.numOfFieldsSelected();
+			}
+	
+//		try {
+//					builderElements.clickOnPdfButton();
+//					driver.getTitle();
+//			} 
+//		catch (UnhandledAlertException f) 
+//			{
+//			   		builderElements.clickOnPdfButton();
+//			        builderElements.switchAndAcceptAlert();
+//			}
 		
 		builderElements.clickOnPdfButton();
-		System.out.println("MESSAGE======> after clicking on pdf");
+	
+		Set<String> allTabAddress =driver.getWindowHandles();
 		
-		try {
-			
-			driver.getTitle();
-		} 
-		catch (UnhandledAlertException f) 
+		for(String addr : allTabAddress)
+		{
+			if(!addrMain.equalsIgnoreCase(addr))
 			{
-			    try {
-				        Alert alert = driver.switchTo().alert();
-				        String alertText = alert.getText();
-				        System.out.println("Alert data: " + alertText);
-				        alert.accept();
-			    	} 
-			    catch (NoAlertPresentException e) 
-			    	{
-			    		e.printStackTrace();
-			    	}
+				driver.switchTo().window(addr);
+			}
+		}
+		
+		System.out.println("stage2 "+driver.getTitle());
+		
+		try{
+			WebDriverWait wait = new WebDriverWait(driver,100);
+			wait.until(ExpectedConditions.visibilityOf(builderElements.pdfDate));
 			}
 		
-//		try
-//		{
-//		builderElements.clickOnPdfButton();
-//		}
-//		
-//		catch(UnhandledAlertException exception)
-//		{
-//			
-//			builderElements.switchAndAcceptAlert();
-//			exception.printStackTrace();
-//		}
+		catch (Exception TimeoutException) 
+		{
+			System.out.println("Time out error");
+			
+			System.out.println(addrMain+" =====> "+driver.getWindowHandle());
+			
+			driver.close();		 
+			
+			//System.out.println(addrMain+" =====> "+driver.getWindowHandle());
+			driver.switchTo().window(addrMain);
+			
+			System.out.println("level 1");
+			
+			//driver.close();
+			Thread.sleep(2000);
+			return false;
+		}
 		
-		/*handle allert"Too many fields selected, some fields may be truncated in the PDF.
-		Remove some fields or reduce font size to prevent truncation."
-		*/
-		
-		System.out.println("MESSAGE======> befort title");
-
 		System.out.println(driver.getTitle());
-		
-		System.out.println("MESSAGE======> after title");
 
-//		Set<String> allTabAddress =driver.getWindowHandles();
-//		
-//		for(String addr : allTabAddress)
+//	    int x=0;
+		
+//		while (!builderElements.pdfDate.isDisplayed()) 
 //		{
-//			if(!addrMain.equalsIgnoreCase(addr))
-//			{
-//				driver.switchTo().window(addr);
-//			}
+//			x=(x+1)*2;
+//			Thread.sleep(2000);
+//			System.out.println("Waiting "+x+" mins");
 //		}
-		WebDriverWait wait = new WebDriverWait(driver,5);
-		wait.until(ExpectedConditions.visibilityOf(builderElements.pdfDate));
+		
+		System.out.println("ddscsdfsdfsdf");
 		String pdfDateRange = builderElements.getPdfDate();
 		
 		 fromDate = pdfDateRange.substring(0, 10);
 		 toDate = pdfDateRange.substring(14, 24);
 		
-		driver.close();
-		driver.switchTo().window(addrMain);
+		 System.out.println("from :"+ fromDate);
+		 System.out.println("to :"+ toDate);
+
 		
+		 if(!pdfDateRange.equals(null)) 
+		 {
+			 driver.close();
+		 }
+	
+		driver.switchTo().window(addrMain);
 		return builderElements.dateFieldsForDateOptions(fromDate,toDate);
 		}
 	
@@ -670,8 +689,6 @@ public class TestBuilders extends BaseTest{
 			}
 		}
 		
-		
-		
 		verifyPdfDateRange(null);
 		boolean fromdateVerification = fromDate.equals(getDate.yesterday());//getDate.monthStartDate() while testing for all test cases
 		boolean todateVerification = toDate.equals(getDate.yesterday());//change this to getDate.monthEndDate() while testing for all test cases
@@ -800,6 +817,7 @@ public class TestBuilders extends BaseTest{
 		if(actualMessage1.equalsIgnoreCase(expectedMsg)&actualMessage2.equalsIgnoreCase(expectedMsg)) return true;
 		else return false;
 	}
+
 	
 //	public void test() throws AWTException
 //	{

@@ -252,7 +252,7 @@ public class TestBillStatusChangeReport extends BaseTest
 	
 	
 	@Test(priority = 29,dataProvider = "dateRangeDropDownOptions", groups = "Billing Reports Builders")
-	public void pdfTest(String options, String buttons)
+	public void pdfTest(String options, String buttons) throws InterruptedException
 	{
 		boolean a = testBuilder.verifyPdfDateRange(options);
 		Assert.assertEquals(a, true);

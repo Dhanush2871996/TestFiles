@@ -17,8 +17,8 @@ public interface IAutoReportConst
 	long ITO = 8;
 	
 	String URL = "http://10.8.55.122/instanmc/loginForm.do";
-	String USERNAME = "Doc001";
-	String PASSWORD = "Insta@123";
+	String USERNAME = "InstaAdmin";
+	String PASSWORD = "InstaAdmin";
 	
 	String USERNAME2 = "InstaAdmin";
 	String PASSWORD2 = "InstaAdmin";
